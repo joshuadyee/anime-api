@@ -1,6 +1,6 @@
 class AnimesController < ApplicationController
   def index
-    anime = Anime.all
-    render json: {hi: anime}
+    @animes = Anime.all
+    render template: "animes/index"
   end
 end

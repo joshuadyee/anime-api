@@ -20,4 +20,15 @@ class AnimesController < ApplicationController
     )
     render template: "animes/show"
   end
+
+  def update
+    @anime = Anime.find_by(id: params[:id])
+    @anime.title = params[:title] || @anime.title
+    @anime.creator = params[:creator] || @anime.creator
+    @anime.main_character = params[:main_character] || @anime.main_character
+    @anime.episode_count = params[:episode_count] || @anime.episode_count
+    @anime.years_run = params[:years_run] || @anime.years_run
+    @anime.save
+    render template: "animes/show"
+  end
 end

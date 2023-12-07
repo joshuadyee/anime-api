@@ -31,4 +31,10 @@ class AnimesController < ApplicationController
     @anime.save
     render template: "animes/show"
   end
+
+  def destroy
+    @anime = Anime.find_by(id: params[:id])
+    @anime.destroy
+    render json: {message: "Instance deleted"}
+  end
 end
